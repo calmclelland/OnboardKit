@@ -45,7 +45,7 @@ final public class OnboardViewController: UIViewController {
 
     let pageControlApperance = UIPageControl.appearance(whenContainedInInstancesOf: [OnboardViewController.self])
     pageControlApperance.pageIndicatorTintColor = defaultTint.withAlphaComponent(0.3)
-    pageControlApperance.currentPageIndicatorTintColor = appearanceConfiguration.tintColor
+    pageControlApperance.currentPageIndicatorTintColor = defaultTint
 
     addChild(pageViewController)
     view.addSubview(pageViewController.view)
