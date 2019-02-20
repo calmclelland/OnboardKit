@@ -104,14 +104,14 @@ internal final class OnboardPageViewController: UIViewController {
       advanceButtonStyling(advanceButton)
     } else {
       advanceButton.setTitleColor(appearanceConfiguration.tintColor, for: .normal)
-      advanceButton.titleLabel?.font = appearanceConfiguration.textFont
+      advanceButton.titleLabel?.font = appearanceConfiguration.titleFont
     }
     actionButton.sizeToFit()
     if let actionButtonStyling = appearanceConfiguration.actionButtonStyling {
       actionButtonStyling(actionButton)
     } else {
       actionButton.setTitleColor(appearanceConfiguration.tintColor, for: .normal)
-      actionButton.titleLabel?.font = appearanceConfiguration.titleFont
+      actionButton.titleLabel?.font = appearanceConfiguration.textFont
     }
   }
 
@@ -119,14 +119,18 @@ internal final class OnboardPageViewController: UIViewController {
     view = UIView(frame: CGRect.zero)
     view.addSubview(titleLabel)
     view.addSubview(pageStackView)
-    NSLayoutConstraint.activate([
-      titleLabel.centerXAnchor.constraint(equalTo: view.centerXAnchor),
-      titleLabel.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor, constant: 16.0),
-      pageStackView.topAnchor.constraint(equalTo: titleLabel.bottomAnchor, constant: 16.0),
-      pageStackView.rightAnchor.constraint(equalTo: view.safeAreaLayoutGuide.rightAnchor),
-      pageStackView.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor),
-      pageStackView.leftAnchor.constraint(equalTo: view.safeAreaLayoutGuide.leftAnchor)
-      ])
+    if #available(iOS 11.0, *) {
+        NSLayoutConstraint.activate([
+            titleLabel.centerXAnchor.constraint(equalTo: view.centerXAnchor),
+            titleLabel.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor, constant: 16.0),
+            pageStackView.topAnchor.constraint(equalTo: titleLabel.bottomAnchor, constant: 16.0),
+            pageStackView.rightAnchor.constraint(equalTo: view.safeAreaLayoutGuide.rightAnchor),
+            pageStackView.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor),
+            pageStackView.leftAnchor.constraint(equalTo: view.safeAreaLayoutGuide.leftAnchor)
+            ])
+    } else {
+        // Fallback on earlier versions
+    }
     pageStackView.addArrangedSubview(imageView)
     pageStackView.addArrangedSubview(descriptionLabel)
     pageStackView.addArrangedSubview(actionButton)
