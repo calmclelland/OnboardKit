@@ -88,9 +88,9 @@ internal final class OnboardPageViewController: UIViewController {
     descriptionLabel.font = appearanceConfiguration.textFont
     //Style buttons
     actionButton.setTitleColor(appearanceConfiguration.tintColor, for: .normal)
-    actionButton.titleLabel?.font = appearanceConfiguration.titleFont
+    actionButton.titleLabel?.font = appearanceConfiguration.textFont
     advanceButton.setTitleColor(appearanceConfiguration.tintColor, for: .normal)
-    advanceButton.titleLabel?.font = appearanceConfiguration.textFont
+    advanceButton.titleLabel?.font = appearanceConfiguration.titleFont
   }
 
   private func customizeForDebug() {
