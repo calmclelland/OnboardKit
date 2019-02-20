@@ -14,6 +14,8 @@ final public class OnboardViewController: UIViewController {
                                                             options: nil)
   private let pageItems: [OnboardPage]
   private let appearanceConfiguration: AppearanceConfiguration
+    
+  private let defaultTint = UIColor(red: 0.0, green: 122.0/255.0, blue: 1.0, alpha: 1.0)
 
   required public init?(coder: NSCoder) {
     fatalError("init(coder:) has not been implemented")
@@ -42,7 +44,7 @@ final public class OnboardViewController: UIViewController {
     pageViewController.view.frame = view.bounds
 
     let pageControlApperance = UIPageControl.appearance(whenContainedInInstancesOf: [OnboardViewController.self])
-    pageControlApperance.pageIndicatorTintColor = appearanceConfiguration.tintColor.withAlphaComponent(0.3)
+    pageControlApperance.pageIndicatorTintColor = defaultTint.withAlphaComponent(0.3)
     pageControlApperance.currentPageIndicatorTintColor = appearanceConfiguration.tintColor
 
     addChild(pageViewController)
