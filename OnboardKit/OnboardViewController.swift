@@ -129,7 +129,7 @@ extension OnboardViewController: OnboardPageViewControllerDelegate {
 
   func pageViewController(_ pageVC: OnboardPageViewController, advanceTappedAt index: Int) {
     if index == pageItems.count - 1 {
-      dismiss(animated: true, completion: nil)
+      NotificationCenter.default.post(name: "IntroShouldDismiss", object: nil)
     } else {
       advanceToPageWithIndex(index + 1)
     }
