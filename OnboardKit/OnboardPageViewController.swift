@@ -155,6 +155,8 @@ internal final class OnboardPageViewController: UIViewController {
     if let imageName = imageName, let image = UIImage(named: imageName) {
       imageView.image = image
       imageView.heightAnchor.constraint(equalTo: pageStackView.heightAnchor, multiplier: 0.5).isActive = true
+      advanceButton.accessibilityIdentifier = "nextButton_" + String(imageName)
+      imageView.accessibilityIdentifier = imageName
     } else {
       imageView.isHidden = true
     }
